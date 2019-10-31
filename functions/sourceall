@@ -1,0 +1,17 @@
+#!/bin/zsh
+# usage:
+# `sourceall zsh` will source *.zsh, otherwise *
+
+local ext=
+local f=
+local p=
+
+(( $# > 0 )) && ext=".$1"
+for p in $apath; do
+  [[ -d $p ]] || continue
+  for f in $p/*$ext(.N); do
+    [[ -r $f ]] && . $f
+  done
+done
+
+# vim: ft=zsh expandtab tabstop=2 shiftwidth=2
