@@ -37,8 +37,8 @@ bindkey '^[[1;5C' forward-word  # [Ctrl-RightArrow] - move forward one word
 bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow]  - move backward one word
 
 
-# make sure the terminal is in application mode when zle is active
-# only then are the values from $terminfo valid
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
   autoload -Uz add-zle-hook-widget
   zle_application_mode_start() {
