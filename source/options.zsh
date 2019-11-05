@@ -2,8 +2,6 @@
 setopt NO_BEEP              # disable terminal beep
 setopt MULTI_OS             # pipe to multiple outputs
 setopt INTERACTIVE_COMMENTS # allow comments in interactive shell
-setopt VI                   # vi-like keybindings
-#setopt KSH_ARRAYS           # whoever thought non-0 indices needs to be shot
 
 # globbing
 setopt NO_CASE_GLOB      # case insensitive globbing
