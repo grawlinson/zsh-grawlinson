@@ -30,6 +30,9 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    up-line-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"  down-line-or-history
 [[ -n "${key[ShiftTab]}"  ]] && bindkey -- "${key[ShiftTab]}"  reverse-menu-complete
+bindkey '^[[1;5C' forward-word  # [Ctrl-RightArrow] - move forward one word
+bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow]  - move backward one word
+
 
 # make sure the terminal is in application mode when zle is active
 # only then are the values from $terminfo valid
