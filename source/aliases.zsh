@@ -40,6 +40,10 @@ if command -v git &> /dev/null; then
   # push/pull
   alias gp='git push'
   alias gl='git pull'
+
+  # diff
+  alias gd='git diff'
+  alias gdca='git diff --cached'
 fi
 
 # pacman
