@@ -9,4 +9,7 @@ export ZSYSDIR="/usr/share/zsh-grawlinson"
 if [ ! -d "${ZDOTDIR}" ]; then mkdir -p "${ZDOTDIR}"; fi
 if [ ! -d "${ZCACHEDIR}" ]; then mkdir -p "${ZCACHEDIR}"; fi
 
+# create empty zshrc if it does not exist
+if [ ! -e "${ZDOTDIR}/.zshrc" ]; then touch "${ZDOTDIR}/.zshrc"; fi
+
 # vim: ft=zsh expandtab tabstop=2 shiftwidth=2
