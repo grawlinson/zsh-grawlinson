@@ -20,6 +20,6 @@ zstyle ':completion:*' special-dirs true
 
 # use caching so that commands like apt and dpkg complete are useable
 zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path "{$ZCACHEDIR}"
+zstyle ':completion::complete:*' cache-path "${ZCACHEDIR}"
 
 # vim: ft=zsh expandtab tabstop=2 shiftwidth=2
