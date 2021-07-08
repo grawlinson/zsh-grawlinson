@@ -1,27 +1,11 @@
 # setup umask [0755]
 umask 0022
 
-# spath -> plugins; apath -> drop-in path
-typeset -T SPATH spath
-typeset -T APATH apath
-typeset -U PATH path # discard duplicates
+# ensure there are no duplicates in $PATH
+typeset -U PATH path
 
-# example: append to path, then make available to child processes
-# path+=('$VAR'); export PATH
-
-# default path values
-spath=(
-  "$ZDOTDIR/plugins"
-  "$ZSYSDIR/plugins"
-)
-apath=(
-  "$ZDOTDIR/source"
-  "$ZSYSDIR/source"
-)
-
-
-# user stuff comes first
-# completions come after the functions they complete
+# user files sourced before system files
+# completions sourced after the functions they complete
 fpath+=(
   "$ZDOTDIR/functions"
   "$ZDOTDIR/completions"
@@ -31,11 +15,23 @@ fpath+=(
   "$ZSYSDIR/prompts"
 )
 
-# source every zsh file in every APATH directory
+# drop-in directory (like /etc/zsh.d)
+# sourceall iterates over APATH, sourcing every file it finds
+typeset -T APATH apath
+apath=(
+  "$ZDOTDIR/source"
+  "$ZSYSDIR/source"
+)
 autoload sourceall
 sourceall zsh
 
-# plugins
+# plugins (explicitly loaded)
+# autosource iterates over SPATH until a matching plugin is found and sourced
+typeset -T SPATH spath
+spath=(
+  "$ZDOTDIR/plugins"
+  "$ZSYSDIR/plugins"
+)
 autoload autosource
 autosource coloured-man
 autosource sudo
