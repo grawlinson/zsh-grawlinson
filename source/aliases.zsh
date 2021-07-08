@@ -11,10 +11,21 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # ls
-alias ls='ls --color=auto --human-readable --group-directories-first'
-alias l='ls --classify -l'
-alias la='ls --classify -la'
-alias lr='ls --classify -tR'
+if [[ -v OSTYPE ]]; then
+  if [[ "$OSTYPE" == "linux"* ]]; then
+    alias ls='ls --color=auto --human-readable --group-directories-first'
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # check for coreutils presence, otherwise we're using bsd ls
+    if command -v gls &> /dev/null; then
+      alias ls='gls --color=auto --human-readable --group-directories-first'
+    else
+      alias ls='ls -G'
+    fi
+  fi
+fi
+alias l='ls -l'
+alias la='ls -la'
+alias lr='ls -lR'
 
 # directories
 setopt AUTO_CD # prefix command with 'cd' if it cannot be executed, e.g. '..' becomes 'cd ..'
