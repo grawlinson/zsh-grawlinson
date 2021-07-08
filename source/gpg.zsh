@@ -9,7 +9,9 @@
 # It is important that this environment variable always reflects the out‐
 # put of the tty command.
 
-GPG_TTY=$(tty)
-export GPG_TTY
+if command -v gpg-agent &> /dev/null; then
+  GPG_TTY=$(tty)
+  export GPG_TTY
+fi
 
 # vim: ft=zsh expandtab tabstop=2 shiftwidth=2
