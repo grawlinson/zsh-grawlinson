@@ -1,8 +1,8 @@
-# set environment variable $ZDOTDIR to $HOME/.config/zsh
+# set environment variables to conform with XDG base directory specification
 export ZDOTDIR="${HOME}/.config/zsh"
-# set environment variable $ZCACHEDIR to $HOME/.cache/zsh
 export ZCACHEDIR="${HOME}/.cache/zsh"
-# set environment variable $ZSYSDIR to /usr/share/zsh-grawlinson
+
+# set framework location
 export ZSYSDIR="/usr/share/zsh-grawlinson"
 
 # create missing folders
