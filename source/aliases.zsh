@@ -1,7 +1,9 @@
-# common aliases
-alias grep='grep --color=auto'
-alias diff='diff --color=auto'
-alias history='fc -il 1'       # redirect history to STDOUT with correct timestamps
+#
+# aliases
+#
+
+# redirect history to STDOUT with correct timestamps
+alias history='fc -il 1'
 
 # safe(r) interactive commands
 alias rm='rm -i'
