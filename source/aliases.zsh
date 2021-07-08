@@ -71,8 +71,6 @@ if command -v pacman &> /dev/null; then
     LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
       awk 'BEGIN {FS=":"} /^Name/{printf("\033[1;36m%s\033[1;37m", $2)} /^Description/{print $2}'
   }
-
-  export CHROOT="${XDG_CACHE_HOME}/chroot"
 fi
 
 # vim: ft=zsh expandtab tabstop=2 shiftwidth=2
