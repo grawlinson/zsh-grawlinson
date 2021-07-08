@@ -1,13 +1,12 @@
-# locale [en_NZ]
-export LANG='en_NZ.UTF-8'
-export LC_ALL='en_NZ.UTF-8'
+#
+# environment variables
+#
 
-# set default values
-export EDITOR='nvim'
+# set default pager
 export PAGER='less'
 export LESS='-R'
 
-# less - disable histfile generation
+# ensure less does not generate history file
 export LESSHISTFILE='/dev/null'
 
 # vim: ft=zsh expandtab tabstop=2 shiftwidth=2
