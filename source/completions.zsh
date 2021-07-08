@@ -1,4 +1,6 @@
+#
 # completion configuration
+#
 
 # have the menu highlight as we cycle through options
 zstyle ':completion:*' menu select
@@ -18,7 +20,7 @@ setopt COMPLETE_ALIASES
 # complete . and .. special directories
 zstyle ':completion:*' special-dirs true
 
-# use caching so that commands like apt and dpkg complete are useable
+# enable caching so that commands like apt and dpkg are completeable
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion::complete:*' cache-path "${ZCACHEDIR}"
 

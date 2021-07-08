@@ -1,4 +1,6 @@
+#
 # key bindings
+#
 
 # set emacs mode
 bindkey -e
