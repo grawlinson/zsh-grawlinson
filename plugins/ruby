@@ -1,0 +1,11 @@
+#
+# ruby
+#
+
+# Add rubygem binary directory to PATH
+if command -v ruby &> /dev/null; then
+  path+=("$(ruby -e "puts Gem.user_dir")/bin")
+  export PATH
+fi
+
+# vim: ft=zsh expandtab tabstop=2 shiftwidth=2
