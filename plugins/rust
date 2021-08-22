@@ -1,0 +1,16 @@
+#
+# rust
+#
+
+# Add Cargo binary directory to PATH
+if command -v cargo &> /dev/null; then
+  # set CARGO_HOME if not set
+  if [ -z "${CARGO_HOME}" ]; then
+    export CARGO_HOME="$HOME/.cargo"
+  fi
+
+  path+=("$CARGO_HOME/bin")
+  export PATH
+fi
+
+# vim: ft=zsh expandtab tabstop=2 shiftwidth=2
