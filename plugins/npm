@@ -1,0 +1,24 @@
+#
+# npm
+#
+
+# Install NPM packages globally without requiring sudo
+# https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
+if command -v npm &> /dev/null; then
+
+  # Use XDG dirs
+  export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
+  export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+  export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR/npm"
+  export NPM_CONFIG_PREFIX="$XDG_DATA_HOME/npm"
+
+  # add npm binary directory to PATH
+  path+=("$NPM_CONFIG_PREFIX/bin")
+  export PATH
+
+  # Rare, but some npm packages install man pages...
+  MANPATH="$NPM_CONFIG_PREFIX/share/man:$(manpath)"
+  export MANPATH
+fi
+
+# vim: ft=zsh expandtab tabstop=2 shiftwidth=2
